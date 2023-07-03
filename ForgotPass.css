@@ -1,0 +1,92 @@
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="email"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+button[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+      /* Nav code */
+
+      .navigation{
+	
+        background-size: cover;
+        height: 10vh;
+    }
+    .navbar{
+        position: fixed;
+        height: 50px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        /* background: rgba(0,0,0,0.4); */
+    }
+    .navbar .logo{
+        width: 180px;
+        height: auto;
+        padding: 5px 30px;
+    }
+    .navbar ul{
+        float: right;
+        margin-right: 70px;
+    }
+    .navbar ul li{
+        list-style: none;
+        margin: 0 10px;
+        display: inline-block;
+        line-height: 70px;
+    }
+    .navbar ul li a{
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(5, 5, 5);
+        padding: 6px 10px;
+        text-decoration: none;
+        transition: .4s;
+    }
+    .navbar ul li a.active,
+    .navbar ul li a:hover{
+        background: #009688;
+        border-radius: 2px;
+    }
+    .navigation.center{
+        position: absolute;
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        font-family: sans-serif;
+        user-select: none;
+    }
+    

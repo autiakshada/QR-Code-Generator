@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback Form</title>
+	<link rel="stylesheet" type="text/css" href="FeedBackStyle.css">
+</head>
+<body>
+	<form method="post" action="submit-feedback.php">
+		<h1>Feedback Form</h1>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		<label for="rating">Rating:</label>
+		<select id="rating" name="rating" required>
+			<option value="">Select a rating</option>
+			<option value="1">1 star</option>
+			<option value="2">2 stars</option>
+			<option value="3">3 stars</option>
+			<option value="4">4 stars</option>
+			<option value="5">5 stars</option>
+		</select>
+		<label for="comments">Comments:</label>
+		<textarea id="comments" name="comments" required></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

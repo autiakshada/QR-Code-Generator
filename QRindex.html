@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- QR Code CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- QR generator library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="QRstyle.css" />
+    <style>
+      * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(#f3f3fb 50%, #009688 50%);
+}
+.wrapper {
+  background-color: #ffffff;
+  padding: 5em 4em;
+  position: absolute;
+  width: 31.25em;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 0.6em;
+  box-shadow: 0 1.5em 3em rgba(3, 21, 55, 0.3);
+}
+#userInput {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #000000;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  outline: none;
+}
+.options {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+select {
+  appearance: none;
+  width: 8em;
+  padding: 0.45em 0.9em;
+  font-size: 1.25em;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  background-color: #009688;
+  border: none;
+  color: #ffffff;
+  background-image: url("arrow.png");
+  background-repeat: no-repeat;
+  background-size: 1.1em;
+  background-position: 6em;
+  outline: none;
+  border-radius: 0.3em;
+}
+select::-ms-expand {
+  display: none;
+}
+select option {
+  background-color: #ffffff;
+  color: #009688;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  font-size: 1.12em;
+}
+.selected {
+  display: none;
+}
+.color-inp {
+  appearance: none;
+  background-color: transparent;
+  width: 3.1em;
+  height: 3.4em;
+  outline: none;
+  border: none;
+}
+.color-inp::-webkit-color-swatch {
+  border-radius: 0.3em;
+  border: 0.18em solid #009688;
+}
+.color-inp::-moz-color-swatch {
+  border-radius: 0.3em;
+  border: 0.18em solid #009688;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.box button,
+.box a {
+  font-size: 1em;
+  padding: 0.8em 2em;
+  border-radius: 0.5em;
+  margin-top: 2em;
+}
+.box button:disabled {
+  background-color: transparent;
+  color: #a3aab6;
+  border: 0.18em solid #a3aab6;
+}
+.box button {
+  background-color: transparent;
+  color: #009688;
+  border: 0.18em solid #009688;
+}
+.box a {
+  background-color: #009688;
+  color: #ffffff;
+  text-decoration: none;
+  border: 0.18em solid #009688;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.8em;
+}
+.hide {
+  display: none;
+}
+
+
+/* Styles for the formatOptions dropdown */
+.formatOptions {
+  margin-right: 10px;
+}
+
+/* Styles for the download button */
+#download {
+  display: none;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #009688;
+  color: #fff;
+  text-decoration: none;
+}
+
+#download:hover {
+  cursor: pointer;
+  background-color: #009688;
+}
+
+
+
+      /* Nav code */
+
+.navigation{
+	
+	background-size: cover;
+	height: 10vh;
+}
+.navbar{
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	/* background: rgba(0,0,0,0.4); */
+}
+.navbar .logo{
+	width: 180px;
+	height: auto;
+	padding: 5px 30px;
+}
+.navbar ul{
+	float: right;
+	margin-right: 70px;
+}
+.navbar ul li{
+	list-style: none;
+	margin: 0 10px;
+	display: inline-block;
+	line-height: 70px;
+}
+.navbar ul li a{
+	font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+	color: rgb(5, 5, 5);
+	padding: 6px 10px;
+	text-decoration: none;
+	transition: .4s;
+}
+.navbar ul li a.active,
+.navbar ul li a:hover{
+	background: #009688;
+	border-radius: 2px;
+}
+.navigation.center{
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	font-family: sans-serif;
+	user-select: none;
+}
+</style>
+  </head>
+  <body>
+    <div class="navigation">
+      <nav class="navbar">
+        <img class="logo" alt="#" src="logo2.png">
+        <ul>
+            <li> <a href="index.html">Home</a> </li>
+        </ul>
+    </nav>
+</div>
+<div class="wrapper">
+      <input type="text" id="userInput" placeholder="Enter some text or URL" />
+      <div class="options">
+        <select class="sizeOptions">
+          <option value="100" selected>100 x 100</option>
+          <option value="200">200 x 200</option>
+          <option value="300">300 x 300</option>
+        </select>
+        <input type="color" id="BGColor" class="color-inp" />
+        <input type="color" id="FGColor" class="color-inp" />
+      </div>
+      <div class="box">
+        <button id="submit" disabled>Generate</button>
+        <a href="#" id="download">Download</a>
+      </div>
+      <div class="container"></div>
+    </div>
+  </div>
+  
+    <!-- Script -->
+    <script src="QRscript.js"></script>
+  </body>
+</html>

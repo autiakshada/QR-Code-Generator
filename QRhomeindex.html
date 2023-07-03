@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE QR CODE GENERATOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- navigation bar  -->
+    <div class="banner">
+        <div class="navbar">
+            <img src="logo1.png" alt="" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="Aboutindex.html">About</a></li>
+                <li><a href="Serviceindex.html">Services</a></li>
+                <?php session_start(); ?>
+                <?php if(isset($_SESSION['Uemail'])) { ?>
+                    <li><a href="logout.php">Logout</a></li>
+                <?php } else { ?>
+                    <li><a href="login2-index.html">Login</a></li>
+                <?php } ?>
+            </ul>
+        </div>
+        
+        
+        <div class="content">
+            <h1>FREE QR CODE GENERATOR</h1>
+            <p>SCAN TO SUCCESS : GENERATE QR CODES IN SECONDS</p>
+            <?php session_start(); ?>
+            <div>
+                <button type="button" style="color: white;" <?php if(!isset($_SESSION['Uemail'])) echo "disabled"; ?>><span></span><a href="QRindex.html" style="text-decoration: none; color: inherit;">QR Code Generator</a></button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+<!-- FOOTER CREDITS  -->
+<footer>
+    <div class="footer">
+        <div class="row">
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="https://github.com/CODE-CHAMELEON-3" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://instagram.com/code_chameleon_3?igshid=NDk5N2NlZjQ=" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+    
+        <div class="row">
+            <ul>
+                <li><a href="ContactUs.html" target="_blank">Contact us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="FeedBackIndex.html" target="_blank">Feedback</a></li>
+            </ul>
+        </div>
+      
+        <div class="row">
+            Copyright © 2023 QR CODE GENERATOR- All rights reserved | Designed By - CODE CHAMELEON
+        </div>
+    </div>
+</footer>
+
+</html>
